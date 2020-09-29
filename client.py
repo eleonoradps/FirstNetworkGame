@@ -43,7 +43,7 @@ def redrawWindow(win, game, p):
         text = font.render("Your Move", 1, (0,255,255))
         win.blit(text, (80, 200))
 
-        text = font.render("Opponents Move", 1, (0, 255, 255))
+        text = font.render("Opponents", 1, (0, 255, 255))
         win.blit(text, (380, 200))
 
         move1 = game.get_player_move(0)
@@ -54,14 +54,14 @@ def redrawWindow(win, game, p):
         else:
             if game.p1Went and p == 0:
                 text1 = font.render(move1, 1, (0,0,0))
-            elif game.p1went:
+            elif game.p1Went:
                 text1 = font.render("Locked In", 1, (0,0,0))
             else:
                 text1 = font.render("Waiting...", 1, (0, 0, 0))
 
             if game.p2Went and p == 1:
                 text2 = font.render(move2, 1, (0,0,0))
-            elif game.p2went:
+            elif game.p2Went:
                 text2 = font.render("Locked In", 1, (0,0,0))
             else:
                 text2 = font.render("Waiting...", 1, (0, 0, 0))
@@ -120,7 +120,7 @@ def main():
             pygame.display.update()
             pygame.time.delay(2000)
 
-        for event in pygame.get():
+        for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
                 pygame.quit()

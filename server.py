@@ -3,7 +3,7 @@ from _thread import *
 import pickle
 from game import Game
 
-server = "172.16.3.78"
+server = "127.0.0.1"
 port = 5555
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -65,7 +65,7 @@ while True:
     gameId = (idCount - 1) //2
     if idCount % 2 == 1:
         games[gameId] = Game(gameId)
-        print ("Creating a new game...")
+        print("Creating a new game...")
     else:
         games[gameId].ready = True
         p = 1
